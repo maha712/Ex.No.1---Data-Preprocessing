@@ -32,10 +32,52 @@ Normalizing the data
 Splitting the data into test and train
 
 ## PROGRAM:
-/Write your code here/
+
+Register Number: 212222240057
+Name: Mahalakshmi.k
+
+import pandas as pd
+df=pd.read_csv("/content/Churn_Modelling.csv")
+df.head()
+df.isnull().sum()
+df.drop(["RowNumber","Age","Gender","Geography","Surname"],inplace=True,axis=1)
+print(df)
+x=df.iloc[:,:-1].values
+y=df.iloc[:,-1].values
+print(x)
+print(y)
+from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler()
+df1 = pd.DataFrame(scaler.fit_transform(df))
+print(df1)
+from sklearn.model_selection import train_test_split
+xtrain,ytrain,xtest,ytest=train_test_split(x,y,test_size=0.2,random_state=2)
+print(xtrain)
+print(len(xtrain))
+print(xtest)
+print(len(xtest))
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+df1 = sc.fit_transform(df)
+print(df1)
 
 ## OUTPUT:
-/ Show the result/
+![a](https://github.com/maha712/Ex.No.1---Data-Preprocessing/assets/121156360/a1b29c21-8e99-43dd-80fe-3d74317dc67d)
+
+![b](https://github.com/maha712/Ex.No.1---Data-Preprocessing/assets/121156360/c4ea5083-1517-4e9f-bf27-df833aa641a7)
+
+![c](https://github.com/maha712/Ex.No.1---Data-Preprocessing/assets/121156360/1ed6bd60-fc89-45ab-a666-f6fbf2c9323a)
+
+![d](https://github.com/maha712/Ex.No.1---Data-Preprocessing/assets/121156360/d561bba5-b44e-48f2-b96b-5fc0621e62dd)
+
+![e](https://github.com/maha712/Ex.No.1---Data-Preprocessing/assets/121156360/482eb209-aa42-492a-ac0f-d957b65fab6a)
+
+![f](https://github.com/maha712/Ex.No.1---Data-Preprocessing/assets/121156360/95186e4f-f268-4d3e-854a-bc67c750e7d0)
+
+![g](https://github.com/maha712/Ex.No.1---Data-Preprocessing/assets/121156360/a70d5915-d776-46db-aba5-c8deee8d597a)
+
+
 
 ## RESULT
-/Type your result here/
+
+Hence,the data preprocessing is done using the above code and data has been splitted into trainning and testing data for getting a better model.
